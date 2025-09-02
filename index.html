@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SGPA Calculator — Coderstaan</title>
+  <style>
+    :root{
+      --bg: #e8dd0b;
+      --muted: #666;
+      --accent: #7c3aed; /* purple */
+      --glow: rgba(99,102,241,0.12);
+      --card-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      --btn-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      --radius: 12px;
+      --max-width: 980px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#ffffff 0%, #757678 100%);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      background:var(--bg);
+      border-radius:16px;
+      box-shadow: var(--card-shadow);
+      padding:28px;
+      text-align:center;
+    }
+
+    /* Top logo */
+    .top-logo{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      margin-bottom:12px;
+    }
+    .top-logo img{
+      width:250px; /* Increased size to be larger than 2nd logo */
+      height:auto;
+      object-fit:contain;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
+    }
+
+    /* Main title */
+    .title{
+      font-size:40px;
+      line-height:1.02;
+      font-weight:700;
+      margin:14px 0 6px;
+      letter-spacing: -0.6px;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size:18px;
+      margin-bottom:18px;
+    }
+
+    /* NSU badge */
+    .nsu-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:14px;
+      margin:14px 0 28px;
+    }
+    .nsu-wrap img{
+      width:130px;
+      height:auto;
+      object-fit:contain;
+      box-shadow: 8px 8px 0 rgba(0,0,0,0.08);
+      border-radius:8px;
+      background:#ffffff;
+      padding:6px;
+    }
+
+    /* Buttons area */
+    .buttons{
+      display:flex;
+      gap:28px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+
+    .btn{
+      min-width:160px;
+      padding:18px 28px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:20px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: var(--btn-shadow);
+      transition:transform .18s ease, box-shadow .18s ease;
+      background: linear-gradient(180deg, #000000 0%, #034ee3 100%);
+      border: 1px solid rgba(76, 58, 106, 0.08);
+      position:relative;
+      overflow:visible;
+    }
+
+    .btn .label{
+      color: #e1ff00;
+      text-transform:uppercase;
+      letter-spacing:1.6px;
+    }
+
+    .btn:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:12px;
+      box-shadow: 0 10px 22px rgba(43, 119, 206, 0.12);
+      opacity:0;
+      transition:opacity .18s ease;
+      z-index:-1;
+    }
+
+    .btn:hover{
+      transform:translateY(-6px);
+    }
+    .btn:hover:before{ opacity:1 }
+
+    /* page footer small note */
+    .note{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Responsive */
+    @media (max-width:520px){
+      .title{ font-size:28px }
+      .top-logo img{ width:120 }
+      .nsu-wrap img{ width:100px }
+      .btn{ min-width:140px; padding:14px 20px; font-size:18px }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main" aria-labelledby="main-title">
+    <header class="top-logo" aria-hidden="false">
+      <!-- Replace src with your Coderstaan logo file -->
+      <img src="./photo/Code.png" alt="Coderstaan logo (replace with your logo)">
+    </header>
+
+    <h1 id="main-title" class="title">SGPA Calculator for</h1>
+    <div class="subtitle">B.Tech — Semester I &amp; II</div>
+
+    <div class="nsu-wrap" aria-hidden="false">
+      <!-- Replace src with your NSU logo file -->
+      <img src="./photo/nsu.png" alt="NSU Jamshedpur logo (replace with NSU logo)">
+    </div>
+
+    <nav class="buttons" aria-label="Choose semester">
+      <!-- Create sem1.html and sem2.html in the same folder later -->
+      <a class="btn" href="./Btech CS/sem1.html" title="Open Semester 1 calculator">
+        <span class="label">Sem I</span>
+      </a>
+
+      <a class="btn" href="./Btech CS/sem2.html" title="Open Semester 2 calculator">
+        <span class="label">Sem II</span>
+      </a>
+    </nav>
+
+    <p class="note">Notes: Other Courses & Rest Semesters Option Will Be Available Soon</p>
+  </div>
+
+  <!-- Optional JS: ensures keyboard 'Enter' on focused button works like click (anchors already do) -->
+  <script>
+    // No heavy JS required — anchors will navigate.
+    // Small accessibility helper: make Enter trigger clicks on custom .btn elements (if you change them later)
+    document.querySelectorAll('.btn').forEach(btn=>{
+      btn.addEventListener('keyup', e=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          btn.click();
+        }
+      })
+    });
+  </script>
+</body>
+</html>
