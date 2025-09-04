@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NSU SGPA Calculator - Semester 1</title>
+  <title>NSU SGPA Calculator - Semester 3</title>
   <link rel="icon" type="image/png" href="../photo/Code.png">
   <style>
     body {
@@ -148,7 +148,7 @@
     <button onclick="goHome()">⬅ Back to Home</button>
     <h1 style="display:flex;align-items:center;justify-content:center;gap:14px;">
       <img src="../photo/Code.png" alt="Logo" style="height:70px;width:auto;vertical-align:middle;object-fit:contain;filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10));">
-      <span>Semester I — SGPA Calculator (NSU)</span>
+      <span>Semester III — SGPA Calculator (NSU)</span>
     </h1>
     <p>Enter marks (theory = out of 100, labs = out of 50). Fields cannot exceed their max values.</p>
 
@@ -161,40 +161,40 @@
           <th>Your Marks</th>
         </tr>
         <tr>
-          <td>Engineering Mathematics-I (BT101)</td><td>4</td><td>100</td>
+          <td>Engineering Mathematics-III (BT301)</td><td>4</td><td>100</td>
           <td><input type="number" id="maths" max="100" min="0" placeholder="0-100"></td>
         </tr>
         <tr>
-          <td>Engineering Physics (BT102)</td><td>4</td><td>100</td>
-          <td><input type="number" id="physics" max="100" min="0" placeholder="0-100"></td>
+          <td>Data Structure using C (BTCSE 302)</td><td>4</td><td>100</td>
+          <td><input type="number" id="data_structure" max="100" min="0" placeholder="0-100"></td>
         </tr>
         <tr>
-          <td>Programming in C (BT103)</td><td>4</td><td>100</td>
-          <td><input type="number" id="programming" max="100" min="0" placeholder="0-100"></td>
+          <td>Computer Organization & Architecture (BTCSE 303)</td><td>4</td><td>100</td>
+          <td><input type="number" id="computer_org" max="100" min="0" placeholder="0-100"></td>
         </tr>
         <tr>
-          <td>Elements of Mechanical Engineering (BT104)</td><td>4</td><td>100</td>
-          <td><input type="number" id="mech" max="100" min="0" placeholder="0-100"></td>
+          <td>Digital Electronics & Logic Design (BTCSE 304)</td><td>4</td><td>100</td>
+          <td><input type="number" id="digital_electronics" max="100" min="0" placeholder="0-100"></td>
         </tr>
         <tr>
-          <td>Basic Electrical Engineering (BT105)</td><td>4</td><td>100</td>
-          <td><input type="number" id="electrical" max="100" min="0" placeholder="0-100"></td>
+          <td>Formal Languages & Automata Theory (BTCSE 305)</td><td>4</td><td>100</td>
+          <td><input type="number" id="formal_languages" max="100" min="0" placeholder="0-100"></td>
         </tr>
         <tr>
-          <td>Professional Communication Skill (BT106)</td><td>3</td><td>100</td>
-          <td><input type="number" id="pcs" max="100" min="0" placeholder="0-100"></td>
+          <td>Object Oriented Programming Using C++ (BTCSE 306)</td><td>4</td><td>100</td>
+          <td><input type="number" id="object_oriented" max="100" min="0" placeholder="0-100"></td>
         </tr>
         <tr>
-          <td>Engineering Physics Lab (BT107L)</td><td>2</td><td>50</td>
-          <td><input type="number" id="phy_lab" max="50" min="0" placeholder="0-50"></td>
+          <td>Data Structures Lab (BTCSE 307L)</td><td>2</td><td>50</td>
+            <td><input type="number" id="data_structures_lab" max="50" min="0" placeholder="0-50"></td>
         </tr>
         <tr>
-          <td>Programming in C Lab (BT108L)</td><td>2</td><td>50</td>
-          <td><input type="number" id="programming_lab" max="50" min="0" placeholder="0-50"></td>
+          <td>C++ Lab  (BTCSE 308L)</td><td>2</td><td>50</td>
+          <td><input type="number" id="cpp_lab" max="50" min="0" placeholder="0-50"></td>
         </tr>
       </table>
 
-      <div class="credits">Total credits: 27</div>
+      <div class="credits">Total credits: 28</div>
 
       <div class="actions">
         <button type="button" class="calc-btn" onclick="calculateSGPA()">Calculate SGPA</button>
@@ -229,13 +229,13 @@
     function calculateSGPA() {
       const subjects = [
         { id: 'maths', credits: 4, max: 100 },
-        { id: 'physics', credits: 4, max: 100 },
-        { id: 'programming', credits: 4, max: 100 },
-        { id: 'mech', credits: 4, max: 100 },
-        { id: 'electrical', credits: 4, max: 100 },
-        { id: 'pcs', credits: 3, max: 100 },
-        { id: 'phy_lab', credits: 2, max: 50, isLab: true },
-        { id: 'programming_lab', credits: 2, max: 50, isLab: true },
+        { id: 'data_structures', credits: 4, max: 100 },
+        { id: 'formal_languages', credits: 4, max: 100 },
+        { id: 'object_oriented', credits: 4, max: 100 },
+        { id: 'digital_electronics', credits: 4, max: 100 },
+        { id: 'computer_org', credits: 4, max: 100 },
+        { id: 'data_structures_lab', credits: 2, max: 50, isLab: true },
+        { id: 'cpp_lab', credits: 2, max: 50, isLab: true },
       ];
 
       let totalCredits = 0;
