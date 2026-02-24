@@ -210,6 +210,14 @@
         <button onclick="closeModal()" style="padding:8px 24px;background:#4a3aff;color:#fff;border:none;border-radius:8px;font-size:1rem;box-shadow:0 2px 8px rgba(74,58,255,0.08);cursor:pointer;">OK</button>
       </div>
     </div>
+    <!-- SGPA Result Modal -->
+    <div id="sgpaModal" style="display:none;position:fixed;z-index:10000;left:0;top:0;width:100vw;height:100vh;background:rgba(5, 41, 224, 0);justify-content:center;align-items:center;">
+      <div style="background:#ffffffeb;padding:20px;border-radius:12px;box-shadow:0px 6px 18px rgba(255, 255, 255, 0.15);width:300px;height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;">
+        <h2 style="color:#000000;margin:0 0 20px 0;">Your SGPA</h2>
+        <div id="sgpaValue" style="font-size:2rem;font-weight:bold;color:#0a14d8;margin-bottom:20px;"></div>
+        <button onclick="closeSgpaModal()" style="padding:10px 20px;background:#de0707;color:white;border:none;border-radius:6px;font-size:1rem;cursor:pointer;">Close</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -224,6 +232,15 @@
     }
     function closeModal() {
       document.getElementById('customModal').style.display = 'none';
+    }
+
+    // SGPA Modal functions
+    function showSgpaModal(sgpa) {
+      document.getElementById('sgpaValue').innerText = sgpa;
+      document.getElementById('sgpaModal').style.display = 'flex';
+    }
+    function closeSgpaModal() {
+      document.getElementById('sgpaModal').style.display = 'none';
     }
 
     function calculateSGPA() {
@@ -273,6 +290,7 @@
 
       const sgpa = (weightedPoints / totalCredits).toFixed(2);
       document.getElementById("result").innerText = "Your SGPA: " + sgpa;
+      showSgpaModal(sgpa);
     }
   </script>
 </body>
